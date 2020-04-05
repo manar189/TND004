@@ -1,2 +1,4 @@
 C:\Users\Nisse\Desktop\Code1\Debug\Lab1.exe
 C:\Users\Nisse\Desktop\Code1\Debug\Lab1.pdb
+C:\Users\mozza\OneDrive\Dokument\Universitet\TND004 - Datastrukturer\Labs\TND004\Debug\Lab1.exe
+C:\Users\mozza\OneDrive\Dokument\Universitet\TND004 - Datastrukturer\Labs\TND004\Debug\Lab1.pdb

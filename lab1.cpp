@@ -146,7 +146,7 @@ int main() {
         std::cout << "Number of items in the sequence: " << seq.size() << '\n';
 
         // display sequence
-        // std::for_each(std::begin(seq), std::end(seq), Formatter<int>(std::cout, 8, 5));
+         std::for_each(std::begin(seq), std::end(seq), Formatter<int>(std::cout, 8, 5));
 
         // read the result sequence from file
         file.open("../../test6_res.txt");
@@ -160,8 +160,8 @@ int main() {
 
         std::cout << "\nNumber of items in the result sequence: " << res.size() << '\n';
 
-        // display sequence
-        // std::for_each(std::begin(res), std::end(res), Formatter<int>(std::cout, 8, 5));
+         //display sequence
+         std::for_each(std::begin(res), std::end(res), Formatter<int>(std::cout, 8, 5));
 
         assert(seq.size() == res.size());
 
@@ -212,40 +212,38 @@ namespace TND004 {
 
 
         auto it = first;
-        bool onlyFalse = true;
+        bool hasTrue = false;
+        bool hasFalse = false;
         while (it != last) {
 
             if (p(*it)) {
-                onlyFalse = false;
-                break;
+                hasTrue = true;
             }
+            else
+                hasFalse = true;
+
+            if (hasTrue && hasFalse)
+                break;
+
             ++it;
         }
-        if (onlyFalse)
+
+        //BASE CASES
+        if (hasTrue && !hasFalse)
+            return last;
+        if (!hasTrue && hasFalse)
             return first;
-
-
-
+        
         //DIVIDE
         int dist = std::distance(first, last);
         std::vector<int>::iterator mid = first + std::ceil(dist / 2);
 
-
         //RECURSIVE
-        if (dist > 1)
-        {
-            std::vector<int>::iterator Sl = stable_partition(V, first, mid, p);
-            std::vector<int>::iterator Sr = stable_partition(V, mid, last, p);
-
-            return std::rotate(Sl, mid, Sr);
-        }
-        return last;
-
-
-
-
-    
-    }  // namespace TND004
+        std::vector<int>::iterator Sl = stable_partition(V, first, mid, p);
+        std::vector<int>::iterator Sr = stable_partition(V, mid, last, p);
+        return std::rotate(Sl, mid, Sr);
+        
+    }
 }
 void TND004::stable_partition(std::vector<int>& V, std::function<bool(int)> p) {
     TND004::stable_partition(V, std::begin(V), std::end(V), p);  // call auxiliary function
@@ -256,9 +254,9 @@ void TND004::stable_partition(std::vector<int>& V, std::function<bool(int)> p) {
 void execute(std::vector<int>& V, const std::vector<int>& res) {
     std::vector<int> _copy{V};
 
-    //std::cout << "\n\nIterative stable partition\n";
-    //TND004::stable_partition_iterative(V, even);
-    //assert(V == res);  // compare with the expected result
+    std::cout << "\n\nIterative stable partition\n";
+    TND004::stable_partition_iterative(V, even);
+    assert(V == res);  // compare with the expected result
 
     std::cout << "Divide-and-conquer stable partition\n";
     TND004::stable_partition(_copy, even);
