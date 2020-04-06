@@ -1,6 +1,12 @@
 // lab1.cpp : stable partition
 // Iterative and divide-and-conquer
 
+/*********************************
+* MEMBERS:                       *
+* Måns Aronsson, manar189        *
+* Nisse Bergman, nisbe033        *
+*********************************/
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -146,7 +152,7 @@ int main() {
         std::cout << "Number of items in the sequence: " << seq.size() << '\n';
 
         // display sequence
-         std::for_each(std::begin(seq), std::end(seq), Formatter<int>(std::cout, 8, 5));
+        // std::for_each(std::begin(seq), std::end(seq), Formatter<int>(std::cout, 8, 5));
 
         // read the result sequence from file
         file.open("../../test6_res.txt");
@@ -161,7 +167,7 @@ int main() {
         std::cout << "\nNumber of items in the result sequence: " << res.size() << '\n';
 
          //display sequence
-         std::for_each(std::begin(res), std::end(res), Formatter<int>(std::cout, 8, 5));
+         //std::for_each(std::begin(res), std::end(res), Formatter<int>(std::cout, 8, 5));
 
         assert(seq.size() == res.size());
 
