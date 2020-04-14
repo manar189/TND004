@@ -1,5 +1,2 @@
-﻿  set.cpp
-C:\Users\mozza\OneDrive\Dokument\Universitet\TND004 - Datastrukturer\Labs\TND004\lab2\Code2\set.cpp(186,33): warning C4100: 'S': unreferenced formal parameter
-C:\Users\mozza\OneDrive\Dokument\Universitet\TND004 - Datastrukturer\Labs\TND004\lab2\Code2\set.cpp(193,33): warning C4100: 'S': unreferenced formal parameter
-C:\Users\mozza\OneDrive\Dokument\Universitet\TND004 - Datastrukturer\Labs\TND004\lab2\Code2\set.cpp(200,33): warning C4100: 'S': unreferenced formal parameter
+﻿  main.cpp
   lab2.vcxproj -> C:\Users\mozza\OneDrive\Dokument\Universitet\TND004 - Datastrukturer\Labs\TND004\lab2\lab2\Debug\lab2.exe

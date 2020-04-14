@@ -241,7 +241,7 @@ namespace TND004 {
             return first;
         
         //DIVIDE
-        std::vector<int>::iterator mid = first + std::ceil(std::distance(first, last) / 2);
+        std::vector<int>::iterator mid = first + (std::distance(first, last) / 2);
 
         //RECURSIVE
         std::vector<int>::iterator Sl = stable_partition(V, first, mid, p);
