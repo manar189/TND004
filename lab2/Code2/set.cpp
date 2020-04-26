@@ -1,3 +1,9 @@
+/***************************
+* MEMBERS:                 *
+* Måns Aronsson - manar189 *
+* Nisse Bergman - nisbe033 *
+***************************/
+
 #include "set.h"
 #include "node.h"
 
@@ -56,7 +62,7 @@ Set::Set(const std::vector<int>& v)
 
 // Make the set empty
 void Set::make_empty() {
-    // IMPLEMENT before HA session on week 16
+    
     Node* ptr = head->next;
     
     while (ptr != tail)
@@ -72,8 +78,7 @@ void Set::make_empty() {
 }
 
 Set::~Set() {
-    // Member function make_empty() can be used to implement the destructor
-    // IMPLEMENT before HA session on week 
+   
     make_empty();
     delete head;
     delete tail;
@@ -81,31 +86,30 @@ Set::~Set() {
 
 // Copy constructor
 Set::Set(const Set& source)
-    : Set{}  // create an empty list
+    : Set{}
 {
-    // IMPLEMENT before HA session on week 16
     Node* ptrSource = source.head->next;
     Node* ptrOrg = head;
 
     while (ptrSource != source.tail)
     {
-        Node* temp = new Node(ptrSource->value, ptrOrg->next, ptrOrg);
-        ptrOrg->next = temp;
-        tail->prev = temp;
-        ptrOrg = ptrOrg->next;
-        ++counter;
+        Node* newNode = new Node(ptrSource->value, ptrOrg->next, ptrOrg);
 
+        ptrOrg->next = newNode;
+        tail->prev = newNode;
+        ptrOrg = ptrOrg->next;
         ptrSource = ptrSource->next;
+
+        ++counter;
     }
 }
 
 // Copy-and-swap assignment operator
 Set& Set::operator=(Set source) {
-    // IMPLEMENT before HA session on week 16
-    Set _copy{ source };
-    std::swap(head, _copy.head);
-    std::swap(tail, _copy.tail);
-    std::swap(counter, _copy.counter);
+    
+    std::swap(head, source.head);
+    std::swap(tail, source.tail);
+    std::swap(counter, source.counter);
    
     return *this;
 }
@@ -288,16 +292,6 @@ Set& Set::operator-=(const Set& S) {
             ptrS = ptrS->next;
         }
     }
-
-    /*while (ptrS != S.tail) {
-        Node* newNode = new Node(ptrS->value, ptrOrg, ptrOrg->prev);
-
-        ptrOrg->prev->next = newNode;
-        tail->prev = newNode;
-
-        ptrS = ptrS->next;
-        ++counter;
-    }*/
 
     return *this;
 }

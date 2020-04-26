@@ -1,10 +1,16 @@
+/***************************
+* MEMBERS:                 *
+* Måns Aronsson - manar189 *
+* Nisse Bergman - nisbe033 *
+***************************/
+
 #include <iostream>
 #include <iomanip>
 #include <sstream>
 #include <cassert>  //assert
 
 #include "set.h"
-//#include <vld.h>
+#include <vld.h>
 
 int main() {
     /*****************************************************
