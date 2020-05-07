@@ -6,6 +6,7 @@
 //
 //#include "BinarySearchTree.h"
 //#include "vld.h"
+//#include "iterator.h"
 //
 //int main() {
 //    /*************************************************/
@@ -52,7 +53,7 @@
 //
 //        // Uncomment this part if contains() returns a bool -- Exercise 1
 //        // Otherwise, comment it away
-//        std::vector<int> V1{2, 4, 6, 8, 16, 18, 22, 24, 26, 28, 52};
+//       /* std::vector<int> V1{2, 4, 6, 8, 16, 18, 22, 24, 26, 28, 52};
 //
 //        for (auto j : V1) {
 //            assert(t.contains(j) == false);
@@ -62,13 +63,13 @@
 //
 //        for (auto j : V2) {
 //            assert(t.contains(j));
-//        }
+//        }*/
 //
 //        /* **************************** */
 //
 //        // Uncomment this part if contains() returns an Iterator -- Exercise 2
 //        // Otherwise, comment it away
-//        /*std::vector<int> V1{2, 4, 6, 8, 16, 18, 22, 24, 26, 28, 52};
+//        std::vector<int> V1{2, 4, 6, 8, 16, 18, 22, 24, 26, 28, 52};
 //
 //        for (auto j : V1) {
 //            assert(t.contains(j) == t.end());
@@ -78,7 +79,7 @@
 //
 //        for (auto j : V2) {
 //            assert(*t.contains(j) == j);
-//        }*/
+//        }
 //    }
 //
 //    assert(BinarySearchTree<int>::get_count_nodes() == 0);
@@ -234,24 +235,24 @@
 //
 //        assert(BinarySearchTree<int>::get_count_nodes() == 5);
 //
-//        // Uncomment this part if contains() returns a boolean -- Exercise 1
-//        // Otherwise, comment it away
-//        std::vector<int> V1{10, 12, 14, 20, 30};
+//        //// Uncomment this part if contains() returns a boolean -- Exercise 1
+//        //// Otherwise, comment it away
+//        //std::vector<int> V1{10, 12, 14, 20, 30};
 //
-//        for (auto j : V1) {
-//            assert(t.contains(j) == false);
-//        }
+//        //for (auto j : V1) {
+//        //    assert(t.contains(j) == false);
+//        //}
 //
-//        std::vector<int> V2{5, 15, 25, 33, 35};
+//        //std::vector<int> V2{5, 15, 25, 33, 35};
 //
-//        for (auto j : V2) {
-//            assert(t.contains(j));
-//        }
-//        /* ********************* */
+//        //for (auto j : V2) {
+//        //    assert(t.contains(j));
+//        //}
+//        ///* ********************* */
 //
 //        // Uncomment this part if contains() returns an Iterator -- Exercise 2
 //        // Otherwise, comment it away
-//        /* std::vector<int> V1{10, 12, 14, 20, 30};
+//        std::vector<int> V1{10, 12, 14, 20, 30};
 //
 //         for (auto j : V1) {
 //             assert(t.contains(j) == t.end());
@@ -260,8 +261,8 @@
 //         std::vector<int> V2{5, 15, 25, 33, 35};
 //
 //         for (auto j : V2) {
-//             assert(*t.contains(j) == j);
-//         }*/
+//         //    assert(*t.contains(j) == j);
+//         }
 //    }
 //
 //    assert(BinarySearchTree<int>::get_count_nodes() == 0);

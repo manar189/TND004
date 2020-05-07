@@ -1,3 +1,9 @@
+/************************************
+* MEMBERS:                          *
+*       Måns Aronsson, manar189     *
+*       Nisse Bergman, nisbe033     *
+************************************/
+
 #include <iostream>
 #include <iomanip>  //setw
 #include <utility>  //std::move
@@ -28,8 +34,25 @@ template <typename Comparable>
 class BinarySearchTree {
 private:
     struct Node;  // nested class defined in node.h
+    
 
 public:
+
+    class Iterator;
+    
+
+    Iterator begin() const
+    {
+        if (isEmpty()) return end();
+        return Iterator(findMin(root));
+	}
+
+    Iterator end() const
+    {
+        return Iterator(nullptr);
+	}
+
+
     BinarySearchTree() : root{nullptr} {
     }
 
@@ -82,8 +105,11 @@ public:
     /**
      * Returns true if x is found in the tree.
      */
-    bool contains(const Comparable &x) const {
-        return (contains(x, root) != nullptr);
+    Iterator contains(const Comparable &x) const {
+        
+        //return (contains(x, root) != nullptr);     //Exercise 1
+        return contains(x, root);     // Exercise 2
+
     }
 
     /**
@@ -101,8 +127,8 @@ public:
         if (isEmpty()) {
             out << "Empty tree";
         } else {
-            //inorder(root, out);
-            preorder(root, out);
+            inorder(root, out);
+            //preorder(root, out);
         }
     }
 
@@ -136,11 +162,11 @@ public:
     }
 
     // get_parent in exercise 1
-    const Comparable &get_parent(const Comparable &x) const {
+    const Comparable get_parent(const Comparable &x) const {
         Node* temp = contains(x, root);
-
-        return (temp != nullptr && temp->parent != nullptr) ? 
-            temp->parent->element : Comparable {};
+        
+        return (temp != nullptr && temp->parent != nullptr) ?
+            temp->parent->element : Comparable{};
     }
 
     std::pair<Comparable, Comparable> find_pred_succ(const Comparable& x) const {
@@ -176,6 +202,7 @@ private:
         return t;
     }
 
+
     /**
      * Private member function to remove from a subtree.
      * x is the item to remove.
@@ -194,23 +221,24 @@ private:
 
         else if (t->left != nullptr && t->right != nullptr)  // Two children
         {
+            // Answer to exc 4
             t->element = findMin(t->right)->element;
             t->right = remove(t->element, t->right);
-        } else {
+        } else {    // One child
             Node *oldNode = t;
 
-            // Our code
+            // Left child
             if (t->left != nullptr) {
                 t->left->parent = t->parent;
                 t = t->left;
             }
+            // Right child
             else if (t->right != nullptr) {
                 t->right->parent = t->parent;
                 t = t->right;
             }
+            // Becomes nullptr if leaf
             else t = t->right;
-            
-            // t = (t->left != nullptr) ? t->left : t->right;
             
             delete oldNode;
         }
@@ -222,7 +250,7 @@ private:
      * Private member function to find the smallest item in a subtree t.
      * Return node containing the smallest item.
      */
-    Node *findMin(Node *t) const {
+    static Node *findMin(Node *t) {
         if (t == nullptr) {
             return nullptr;
         }
@@ -238,7 +266,7 @@ private:
      * Private member function to find the largest item in a subtree t.
      * Return node containing the largest item.
      */
-    Node *findMax(Node *t) const {
+    static Node *findMax(Node *t) {
         if (t != nullptr) {
             while (t->right != nullptr) {
                 t = t->right;
@@ -333,72 +361,100 @@ private:
 
     void find_pred_succ(const Comparable& x, std::pair<Comparable, Comparable>& p, Node* t) const {
 
-
-        
         if (t != nullptr) {
 
-            if (t->element == x) {
-                p.first = find_predecessor(t)->element;
-                p.second = find_successor(t)->element;
-                return;
-            }
-
+            // Going down tree
             if (t->element < x) {
-                p.first = t->element;
 
+                p.first = t->element;
                 find_pred_succ(x, p, t->right);
+
+                if (p.first == x && t->element < p.first) {
+                    p.first = t->element;
+                }
+                if (p.second == x && t->element > p.second) {
+                    p.second = t->element;
+                }
+
             }
             else if (x < t->element) {
-                p.second = t->element;
 
+                p.second = t->element;
                 find_pred_succ(x, p, t->left);
+
+                if (p.first == x && t->element < p.first) {
+                    p.first = t->element;
+                }
+                if (p.second == x && t->element > p.second) {
+                    p.second = t->element;
+                }
+            }
+            // x is in tree
+            else {
+                //auto predPtr = find_predecessor(t);
+                //auto sucPtr = find_successor(t); // if right subtree, findmax     if left subtree, findmin
+
+                auto minPtr = findMax(t->left);
+                auto maxPtr = findMin(t->right);
+
+                // Only one node
+                if (minPtr == nullptr && maxPtr == nullptr) {
+                    p.first = x;
+                    p.second = x;
+                    return;
+                }
+                // No predecessor
+                if (minPtr == nullptr) {
+                    p.first = x;
+                    p.second = maxPtr->element;
+                    return;
+                }
+                // No successor
+                if (maxPtr == nullptr) {
+                    p.first = minPtr->element;
+                    p.second = x;
+                    return;
+                }
+                
+                // Has both predecessor and successor
+                p.first = minPtr->element;
+                p.second = maxPtr->element;
+                
             }
         }
-
-        
-        
     }
 
-    const Node* find_predecessor(Node* t) const {
+    static Node* find_predecessor(Node* t) {
+
         if (t != nullptr && t->left != nullptr){
             return findMax(t->left); 
         } 
         else //predecessor is one of the ancestors 
         { 
-            // Two cases, return temp if t is the highest number
-            Node* temp = t;
 
-            while (t->parent != root && t != t->parent->right) {
+            while (t->parent != nullptr && t == t->parent->left) {
 
                 t = t->parent;
             }
 
-            if (t == t->parent->right) {
-                return t->parent;
-            }
-
-            return temp;
+            return t->parent;
         }
     }
 
-    const Node* find_successor(Node* t) const {
+    static Node* find_successor(Node* t) {
+
         if (t != nullptr && t->right) {
             return findMin(t->right);
         }
         else //successor is one of the ancestors 
         {
-            Node* temp = t; //Store value in case of it being its own successor.
 
-            while (t->parent != root && t != t->parent->left) {
+            while (t->parent != nullptr && t == t->parent->right) {
 
                 t = t->parent;
             }
 
-            if (t == t->parent->left) {
-                return t->parent;
-            }
-
-            return temp;
+            return t->parent;
         }
     }
 
@@ -407,3 +463,4 @@ private:
 
 //Include the definition of class Node
 #include "node.h"
+#include "iterator.h"

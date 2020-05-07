@@ -24,6 +24,12 @@
     <ClInclude Include="..\..\Code3\node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Code3\iterator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code3\FrequencyTable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Code3\test1.cpp">
@@ -32,30 +38,18 @@
     <ClCompile Include="..\..\Code3\test2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Code3\test3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code3\test4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\Code3\other files\frequency_table.txt">
+    <Text Include="..\..\other_files\frequency_table.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="..\..\Code3\other files\frequency_table_long.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="..\..\Code3\other files\inorder_traversal.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="..\..\Code3\other files\test0_out.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="..\..\Code3\other files\test1_out.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="..\..\Code3\other files\text.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="..\..\Code3\other files\text_long.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="..\..\Code3\other files\words.txt">
+    <Text Include="..\..\other_files\frequency_table_long.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>
