@@ -1,3 +1,8 @@
+/************************************
+* MEMBERS:                          *
+*       Måns Aronsson, manar189     *
+*       Nisse Bergman, nisbe033     *
+************************************/
 #pragma once
 
 class UnderflowException { };
