@@ -1,7 +1,11 @@
 /*********************************************
- * file:	~\tnd004\lab\lab4a\list.cpp          *
- * remark: implementation of adjacency lists  *
- **********************************************/
+*   MEMEBERS:                                *
+*       Måns Aronsson, manar189              *
+*       Nisse Bergman, nisbe033              *
+*                                            *
+* file:	~\tnd004\lab\lab4a\list.cpp          *
+* remark: implementation of adjacency lists  *
+**********************************************/
 
 #include <iostream>
 #include <iomanip>

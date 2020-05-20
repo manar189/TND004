@@ -1,7 +1,11 @@
 /*********************************************
- * file:	~\tnd004\lab\lab4b\edge.cpp          *
- * remark: implementation of (explicit) edges *
- **********************************************/
+*   MEMEBERS:                                *
+*       Måns Aronsson, manar189              *
+*       Nisse Bergman, nisbe033              *
+*                                            *
+* file:	~\tnd004\lab\lab4b\edge.cpp          *
+* remark: implementation of (explicit) edges *
+**********************************************/
 
 #include <iostream>
 #include <iomanip>

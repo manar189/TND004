@@ -1,7 +1,11 @@
 /*********************************************
- * file:	~\tnd004\lab\lab4b\graph.h        *
- * remark:implementation of undirected graphs *
- **********************************************/
+*   MEMEBERS:                                *
+*       Måns Aronsson, manar189              *
+*       Nisse Bergman, nisbe033              *
+*                                            *
+* file:	~\tnd004\lab\lab4b\graph.h           *
+* remark:implementation of undirected graphs *
+**********************************************/
 
 #include <iostream>
 #include <iomanip>
@@ -59,13 +63,103 @@ void Graph::removeEdge(int u, int v) {
 // Prim's minimum spanning tree algorithm
 void Graph::mstPrim() const {
 
-    // *** TODO ***
+    std::vector<int> dist;
+    std::vector<int> path;
+    std::vector<int> done;
+
+    dist.resize(size + 1);
+    path.resize(size + 1);
+    done.resize(size + 1);
+
+
+    // Init with infinite dist, path 0
+    
+    dist[0] = std::numeric_limits<int>::max();
+    for (int i = 1; i <= size; i++)
+    {
+        dist[i] = std::numeric_limits<int>::max();
+        path[i] = 0;
+        done[i] = false;
+    }
+
+    
+
+    // Start vertex
+    int totWeight = 0;
+    int v = 1;
+    dist[v] = 0;
+    done[v] = true;
+
+    while (true)
+    {
+        Node* u = table[v].getFirst();
+
+        while (u != nullptr)
+        {
+            if (done[u->vertex] == false && dist[u->vertex] > u->weight)
+            {
+                dist[u->vertex] = u->weight;
+                path[u->vertex] = v;
+            }
+            
+            //u = table[u->vertex].getNext();
+            u = table[v].getNext();
+		}
+
+        v = 0;
+        for (int i = 1; i <= size; i++) {
+
+            if (!done[i] && dist[i] < dist[v]) {
+                v = i;
+            }
+        }
+
+        if (v == 0) break;
+        done[v] = true;
+        totWeight += dist[v];
+
+        // Output
+        std::cout << "( " << path[v] << ", " << v << ", " << dist[v] << " )" << std::endl;
+    }
+
+    std::cout << "\nTotal Weight =  " << totWeight << std::endl;
 }
 
 // Kruskal's minimum spanning tree algorithm
 void Graph::mstKruskal() const {
 
-    // *** TODO ***
+    Heap<Edge> H(size);
+    DSets D(size);
+
+    // Build heap with all the edges
+    for (int v = 1; v <= size; v++) {
+        Node* u = table[v].getFirst();
+
+        while(u != nullptr) {
+
+            // IF-statement to get equal output as testfile.
+            if(u->vertex < v) H.insert(Edge(u->vertex, v, u->weight));
+
+            u = table[v].getNext();
+		}
+	}
+
+    int counter = 0, totWeight = 0;
+
+    while (counter < size - 1)
+    {
+        Edge e = H.deleteMin();
+
+        if (D.find(e.head) != D.find(e.tail))
+        {
+            totWeight += e.weight;
+            std::cout << e << std::endl;
+            D.join(D.find(e.head), D.find(e.tail));
+            ++counter;
+        }
+    }
+
+    std::cout << "\nTotal Weight = " << totWeight << std::endl;
 }
 
 // print graph
@@ -81,3 +175,5 @@ void Graph::printGraph() const {
 
     std::cout << "------------------------------------------------------------------\n";
 }
+
+

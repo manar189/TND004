@@ -1,7 +1,11 @@
 /*********************************************
- * file:	~\tnd004\lab\lab4a\digraph.cpp       *
- * remark: implementation of directed graphs  *
- **********************************************/
+*   MEMEBERS:                                *
+*       Måns Aronsson, manar189              *
+*       Nisse Bergman, nisbe033              *
+*                                            *
+* file:	~\tnd004\lab\lab4a\digraph.cpp       *
+* remark: implementation of directed graphs  *
+**********************************************/
 
 #include <iostream>
 #include <iomanip>

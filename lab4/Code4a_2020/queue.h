@@ -1,7 +1,11 @@
 /*********************************************
- * file:	~\tnd004\lab\lab4a\queue.h           *
- * remark:  class template for generic queues *
- **********************************************/
+*   MEMEBERS:                                *
+*       Måns Aronsson, manar189              *
+*       Nisse Bergman, nisbe033              *
+*                                            *
+* file:	~\tnd004\lab\lab4a\queue.h           *
+* remark:  class template for generic queues *
+**********************************************/
 #pragma once
 
 #include <cassert>

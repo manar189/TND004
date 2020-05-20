@@ -1,7 +1,11 @@
 /*********************************************
- * file:	~\tnd004\lab\lab4a\list.h            *
- * remark: interface for adjacency lists      *
- **********************************************/
+*   MEMEBERS:                                *
+*       Måns Aronsson, manar189              *
+*       Nisse Bergman, nisbe033              *
+*                                            *
+* file:	~\tnd004\lab\lab4a\list.h            *
+* remark: interface for adjacency lists      *
+**********************************************/
 #pragma once
 
 class Node {

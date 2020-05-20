@@ -1,7 +1,11 @@
 /*********************************************
- * file:	~\tnd004\lab\lab4a\main.cpp       *
- * remark: test program for lab 4 part A      *
- **********************************************/
+*   MEMEBERS:                                *
+*       Måns Aronsson, manar189              *
+*       Nisse Bergman, nisbe033              *
+*                                            *
+* file:	~\tnd004\lab\lab4a\main.cpp          *
+* remark: test program for lab 4 part A      *
+**********************************************/
 
 #include <iostream>
 #include <fstream>
@@ -13,6 +17,7 @@
 //using namespace std;
 
 #include "digraph.h"
+#include "vld.h"
 
 // -- FUNCTION DECLARATIONS
 

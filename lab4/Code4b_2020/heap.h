@@ -1,4 +1,8 @@
 /*********************************************
+*   MEMEBERS:                                *
+*       Måns Aronsson, manar189              *
+*       Nisse Bergman, nisbe033              *
+*                                            *
 * file:	~\tnd004\lab\lab4b\heap.h            *
 * remark:  class template for generic heaps  *
 **********************************************/

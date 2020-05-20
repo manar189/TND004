@@ -1,4 +1,8 @@
 /*********************************************
+*   MEMEBERS:                                *
+*       Måns Aronsson, manar189              *
+*       Nisse Bergman, nisbe033              *
+*                                            *
 * file:	~\tnd004\lab\lab4b\edge.h            *
 * remark: interface for (explicit) edges     *
 **********************************************/

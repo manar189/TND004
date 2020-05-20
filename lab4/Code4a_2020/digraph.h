@@ -1,7 +1,11 @@
 /*********************************************
- * file:	~\tnd004\lab\lab4a\digraph.h         *
- * remark: interface for directed graphs      *
- **********************************************/
+*   MEMEBERS:                                *
+*       Måns Aronsson, manar189              *
+*       Nisse Bergman, nisbe033              *
+*                                            *
+* file:	~\tnd004\lab\lab4a\digraph.h         *
+* remark: interface for directed graphs      *
+**********************************************/
 
 #pragma once
 

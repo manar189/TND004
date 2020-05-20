@@ -1,7 +1,11 @@
 /*********************************************
- * file:	~\tnd004\lab\lab4b\main.cpp       *
- * remark: test program for lab 4 part B      *
- **********************************************/
+*   MEMEBERS:                                *
+*       Måns Aronsson, manar189              *
+*       Nisse Bergman, nisbe033              *
+*                                            *
+* file:	~\tnd004\lab\lab4b\main.cpp          *
+* remark: test program for lab 4 part B      *
+**********************************************/
 
 #include <iostream>
 #include <iomanip>
@@ -15,6 +19,7 @@
 
 #include "graph.h"
 #include "edge.h"
+#include "vld.h"
 
 // -- FUNCTION DECLARATIONS
 
@@ -92,7 +97,7 @@ int menu() {
 // Read a graph's data from a file and create the graph
 // Return a pointer to the graph
 std::unique_ptr<Graph> readGraph(std::string fileName) {
-    std::ifstream file{"../../" + fileName};  // modify the file path, if needed
+    std::ifstream file{"../" + fileName};  // modify the file path, if needed
 
     if (!file) {
         std::cout << "File not found!\n";

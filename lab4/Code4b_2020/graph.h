@@ -1,7 +1,11 @@
 /*********************************************
- * file:	~\tnd004\lab\lab4b\graph.h           *
- * remark: interface for undirected graphs    *
- **********************************************/
+*   MEMEBERS:                                *
+*       Måns Aronsson, manar189              *
+*       Nisse Bergman, nisbe033              *
+*                                            *
+* file:	~\tnd004\lab\lab4b\graph.h           *
+* remark: interface for undirected graphs    *
+**********************************************/
 
 #pragma once
 
